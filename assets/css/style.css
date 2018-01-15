@@ -1,0 +1,30 @@
+body {
+	margin: 20px;
+	line-height: 2;
+	font-family: Comic Sans MS;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h4, p {
+	font-size: 20px;
+}
+
+input[type=text] {
+	border: 1px solid #00CED1;
+	font-family: Comic Sans MS;
+}
+
+input[type=submit] {
+	padding: 5px 10px;
+	font-size: 15px;
+	background-color: #00CED1;
+	color: black;
+	font-family: Comic Sans MS;
+}
+
+#form-animals {
+	float: right;
+}
