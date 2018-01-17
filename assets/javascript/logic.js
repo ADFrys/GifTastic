@@ -33,7 +33,6 @@ $(".animal-buttons").on("click", ".animal", function() {
   	console.log(giphyURL);
     
     for (var j = 0; j<response.data.length; j++) {
-      // var giphyStillURL = response.data[j].images.downsized_still.url;
       var image = $("<img>");
       image.attr("alt", "giphy image");
       image.attr("data-still", response.data[j].images.downsized_still.url);
@@ -42,25 +41,23 @@ $(".animal-buttons").on("click", ".animal", function() {
       image.attr("data-state", "still")
       image.attr("class", "gifs")
       $("#animal-gifs").prepend(image);
-      // var giphyAnimateURL = response.data[j].images.downsized.url;
       var rating = response.data[j].rating;
       console.log(rating);
       var p = $("<p>").html("Rating: " + rating);
       $("#animal-gifs").prepend(p);
     };
-
-    $("#animal-gifs").on("click", ".gifs", function() {
-    // Set attribute data state to animate and back to still when click on image
-    // var gifState = $(this).attr("data-state", "animate");
-    var imageState = $(this).attr("data-state");
-    if (imageState === "still") {
-      $(this).attr("src", $(this).attr("data-animate"));
-      $(this).attr("data-state", "animate");
-    }
-    else if (imageState === "animate") {
-    	$(this).attr("src", $(this).attr("data-still"));
-    	$(this).attr("data-state", "still");
-      }
-    });
   });
+});
+
+$("body").on("click", ".gifs", function() {
+  var imageState = $(this).attr("data-state");
+
+  if (imageState === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  }
+  else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  } 
 });
